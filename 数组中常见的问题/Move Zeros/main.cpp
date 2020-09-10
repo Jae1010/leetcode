@@ -1,7 +1,15 @@
+
+//给定一个数组nums，写一个函数，将数组中所有的0挪到数组的末尾，
+//而维持其他所有非0元素的相对位置
+//举例：nums = [0,1,0,3,12], 函数运行后结果为[1,3,12,0,0]
+
+
 #include <iostream>
 #include <vector>
 
 using namespace std;
+
+//空间O(n)，时间O(n)
 
 class Solution1{
 public:
@@ -18,6 +26,8 @@ public:
 
     }
 };
+
+//以下空间O(1)，时间O(n)
 
 class Solution2{
 public:
