@@ -15,7 +15,7 @@ int *generateOrderArray( int n ){
 
 template<typename T>
 int binartSearch( T arr[], int n, T target){
-    int l = 0,r = n -1 ;
+    int l = 0,r = n -1 ;  //[l,r]
     while(l <= r){
         int mid = l + (r-l)/2;
         if( arr[mid] == target)
