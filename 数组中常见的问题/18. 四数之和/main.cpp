@@ -1,19 +1,19 @@
 //==================================================================
-// Leetcode´úÂë
-// ×÷Õß£º²Ü¼Ñ
+// Leetcodeä»£ç 
+// ä½œè€…ï¼šæ›¹ä½³
 //==================================================================
 
-// 18. ËÄÊýÖ®ºÍ
-// ÌâÄ¿£º¸ø¶¨Ò»¸ö°üº¬ n ¸öÕûÊýµÄÊý×é nums ºÍÒ»¸öÄ¿±êÖµ target£¬ÅÐ¶Ï nums ÖÐÊÇ·ñ´æÔÚËÄ¸öÔªËØ a£¬b£¬c ºÍ d £¬Ê¹µÃ a + b + c +
-// d µÄÖµÓë target ÏàµÈ£¿ÕÒ³öËùÓÐÂú×ãÌõ¼þÇÒ²»ÖØ¸´µÄËÄÔª×é¡£ ×¢Òâ£º´ð°¸ÖÐ²»¿ÉÒÔ°üº¬ÖØ¸´µÄËÄÔª×é¡£
+// 18. å››æ•°ä¹‹å’Œ
+// é¢˜ç›®ï¼šç»™å®šä¸€ä¸ªåŒ…å« n ä¸ªæ•´æ•°çš„æ•°ç»„ nums å’Œä¸€ä¸ªç›®æ ‡å€¼ targetï¼Œåˆ¤æ–­ nums ä¸­æ˜¯å¦å­˜åœ¨å››ä¸ªå…ƒç´  aï¼Œbï¼Œc å’Œ d ï¼Œä½¿å¾— a + b + c +
+// d çš„å€¼ä¸Ž target ç›¸ç­‰ï¼Ÿæ‰¾å‡ºæ‰€æœ‰æ»¡è¶³æ¡ä»¶ä¸”ä¸é‡å¤çš„å››å…ƒç»„ã€‚ æ³¨æ„ï¼šç­”æ¡ˆä¸­ä¸å¯ä»¥åŒ…å«é‡å¤çš„å››å…ƒç»„ã€‚
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-//Ë«Ö¸Õë
-//ºÍÈýÊýÖ®ºÍËÄÂ·ÏàÍ¬£¬ÓÉÓÚÐèÒªÈ·¶¨ËÄ¸öÊý£¬ËùÒÔÐèÒª4¸öÖ¸Õë,¶àÒ»²ãÑ­»·
+//åŒæŒ‡é’ˆ
+//å’Œä¸‰æ•°ä¹‹å’Œæ€è·¯ç›¸åŒï¼Œç”±äºŽéœ€è¦ç¡®å®šå››ä¸ªæ•°ï¼Œæ‰€ä»¥éœ€è¦4ä¸ªæŒ‡é’ˆ,å¤šä¸€å±‚å¾ªçŽ¯
 
 vector<vector<int>> fourSum(vector<int>& nums, int target) {
         vector<vector<int>> result;
