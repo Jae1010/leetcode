@@ -14,7 +14,7 @@
 
 using namespace std;
 
-//
+//时间复杂度O(n),空间复杂度O(1)
 
 bool isPalindrome(string s) {
     int slow = 0;
@@ -32,13 +32,36 @@ bool isPalindrome(string s) {
     while(i < j){
         if(s[i] != s[j])
             return false;
-        else{
-            i++;
-            j--;
-        }
+        i++;
+        j--;
+
     }
     return true;
 }
+
+//时间复杂度O(n),空间复杂度O(1)
+bool isPalindrome1(string s) {
+        int n = s.size();
+        int left = 0, right = n - 1;
+        while (left < right) {
+            while (left < right && !isalnum(s[left])) {
+                ++left;
+            }
+            while (left < right && !isalnum(s[right])) {
+                --right;
+            }
+            if (left < right) {
+                if (tolower(s[left]) != tolower(s[right])) {
+                    return false;
+                }
+                ++left;
+                --right;
+            }
+        }
+        return true;
+}
+
+
 
 int main()
 {
