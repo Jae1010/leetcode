@@ -27,7 +27,7 @@ public:
     }
 };
 
-//以下空间O(1)，时间O(n)
+//以下空间O(1)，时间O(n)，双指针
 
 class Solution2{
 public:
