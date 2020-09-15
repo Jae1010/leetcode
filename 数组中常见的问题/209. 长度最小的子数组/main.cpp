@@ -14,7 +14,7 @@
 
 using namespace std;
 
-//错误解法
+//错误写法
 int minSubArrayLen1(int s, vector<int>& nums) {
     int slow = -1, fast = 0, sum = 0, size = nums.size(); //slow,fast设置有问题，(-1,0)->(0,0)？
     while(slow < fast){//slow和fast可以重合
@@ -42,15 +42,31 @@ int minSubArrayLen(int s, vector<int>& nums) {
         if(sum>=s)
             res = min(res, fast - slow + 1);
     }
-    if(res == nums.size()+1)
+    if(res == nums.size()+1) //全部数组加起来也没s大的情况
+        return 0;
+    return res;
+}
+//另一种写法
+int minSubArrayLen2(int s, vector<int>& nums) {
+
+    int left = 0, right = 0;
+    int sum = 0, res = INT_MAX;
+    while(right < nums.size()){
+        sum += nums[right++];
+        while(sum >= s){
+            res = min(res, right-left);
+            sum -= nums[left++];
+        }
+    }
+    if(res == INT_MAX) //全部数组加起来也没s大的情况
         return 0;
     return res;
 }
 
 int main()
 {
-    vector<int> ivec = { 2,3,1,2,4,3};
-    int a = minSubArrayLen(7, ivec);
+    vector<int> ivec = { 1,1};
+    int a = minSubArrayLen2(3, ivec);
     cout << a<<endl;
     return 0;
 }
