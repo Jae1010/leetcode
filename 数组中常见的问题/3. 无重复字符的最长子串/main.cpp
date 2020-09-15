@@ -11,6 +11,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <unordered_map>
 
 using namespace std;
 
@@ -29,12 +30,26 @@ int lengthOfLongestSubstring(string s) {
 
     return res;
 }
+//ÁíÒ»ÖÖÐ´·¨
+int lengthOfLongestSubstring1(string s) {
+    unordered_map<char, int> window;
+    int left = 0, right = 0, res = 0;
+
+    while(right < s.size()){
+        char c = s[right++];
+        window[c]++;
+        while(window[c] != 1)
+            window[s[left++]] --;
+        res = max(res, right - left);
+    }
+    return res;
+}
 
 
 int main()
 {
     string s = "abcabcbb";
-    int a = lengthOfLongestSubstring(s);
+    int a = lengthOfLongestSubstring1(s);
     cout << a << endl;
     return 0;
 }
