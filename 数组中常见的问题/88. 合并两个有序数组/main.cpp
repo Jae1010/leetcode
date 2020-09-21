@@ -13,7 +13,7 @@
 using namespace std;
 
 //O(n)时间复杂度 O(n+m) 空间复杂度O(m)
-void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+void merge1(vector<int>& nums1, int m, vector<int>& nums2, int n) {
 
     vector<int> vec;
     for(int i = 0; i < m; i++)
@@ -63,13 +63,27 @@ void merge3(vector<int>& nums1, int m, vector<int>& nums2, int n) {
         nums1[i--] = nums2[n--];
     }
 }
+ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int i = m + n - 1;
+        m--;
+        n--;
+        while( n >= 0){
+            while(m >= 0){
+                if(nums1[m] > nums2[n])
+                    nums1[i--] = nums1[m--];
+                else
+                    nums1[i--] = nums2[n--];
+            }
+            nums1[i--] = nums2[n--];
+        }
+    }
 
 
 int main()
 {
     vector<int> nums1 = {1,2,3,0,0,0};
     vector<int> nums2 = {2,5,6};
-    merge2(nums1, 3, nums2, 3);
+    merge(nums1, 3, nums2, 3);
     for(auto i : nums1)
         cout << i << " ";
     cout << endl;
