@@ -31,7 +31,7 @@ vector<int> findAnagrams(string s, string p) {
                 valid ++;
         }
         while(right - left >= p.size()){
-            if( valid == p.size())
+            if( valid == need.size())
                 result.push_back(left);
             char d = s[left++];
             if(need.count(d)){
