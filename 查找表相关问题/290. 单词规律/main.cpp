@@ -35,6 +35,7 @@ bool wordPattern(string pattern, string s) {
                 return false;
         record[pattern[i]] = svec[i];
     }
+    // 反向验证
     unordered_map<string, char>  record2;
     for(int i = 0; i < pattern.size(); i++){
         if(record2.count(svec[i]))
