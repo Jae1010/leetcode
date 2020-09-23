@@ -10,7 +10,7 @@
 //
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <unordered_map>
 
 using namespace std;
 
@@ -22,12 +22,35 @@ vector<int> twoSum(vector<int>& nums, int target) {
                 return {i, j};
     return {};
 }
+//哈希表 时间复杂度O(n)，空间复杂度O(n)
+vector<int> twoSum1(vector<int>& nums, int target) {
+    unordered_map<int, int> record;
+    for(int i = 0;i < nums.size();++i)
+        record.insert({nums[i], i});
+    for(int i = 0;i < nums.size();++i){
+        int otherNum = target - nums[i];
+        if(record.count(otherNum) && record.at(otherNum) != i)
+            return {i, record.at(otherNum)};
+    }
+    return {};
+}
 
+//哈希表 时间复杂度O(n)，空间复杂度O(n)
+vector<int> twoSum2(vector<int>& nums, int target) {
+    unordered_map<int, int> record;
+    for(int i = 0;i < nums.size();++i){
+        int otherNum = target - nums[i];
+        if(record.count(otherNum))
+            return {i, record.at(otherNum)};
+        record.insert({nums[i], i});//最后插入元素
+    }
+    return {};
+}
 
 int main()
 {
     vector<int> ivec = {1,2,3,4,5,10,12,};
-    vector<int> vec = twoSum(ivec, 9);
+    vector<int> vec = twoSum2(ivec, 9);
     for(const auto &i : vec)
         printf("%d ", i);
     return 0;
