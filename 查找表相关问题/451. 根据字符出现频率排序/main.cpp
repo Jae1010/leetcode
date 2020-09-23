@@ -40,7 +40,7 @@ string frequencySort1(string s) {
     unordered_map<char, int> record;
     for(const auto &i : s)
         ++record[i];
-    priority_queue<pair<char, int>> pq;
+    priority_queue<pair<int , char>> pq;
     for(const auto &i : record)
         pq.push(make_pair(i.second, i.first));
     string res;
