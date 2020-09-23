@@ -47,8 +47,6 @@ string frequencySort1(string s) {
     while(!pq.empty()){
         auto t = pq.top();
         pq.pop();
-        //while(t.first--)
-        //res+=t.second;//res.push_back(t.second_;
         res.append(t.first, t.second);
     }
     return res;
