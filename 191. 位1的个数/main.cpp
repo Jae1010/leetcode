@@ -12,8 +12,8 @@
 #include <vector>
 
 using namespace std;
-
-int hammingWeight(uint32_t n) {
+//时间复杂度O(logn)
+int hammingWeight_1(uint32_t n) {
     int ones = 0;
     while(n > 0){
         ones += ( n & 1);
@@ -22,11 +22,21 @@ int hammingWeight(uint32_t n) {
     return ones;
 }
 
+//该算法执行时间正比于n中1的个数  时间复杂度O(logn)
+int hammingWeight_2(uint32_t n) {
+    int ones = 0;
+    while(n > 0){
+        ones ++;
+        n &= n-1; //最低位1用完就被变为0,
+    }
+    return ones;
+}
+
 int main()
 {
     vector<int> ivec = { };
 
-    int a = hammingWeight(441);
+    int a = hammingWeight_2(441);
     cout << a;
     return 0;
 }
