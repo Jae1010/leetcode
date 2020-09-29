@@ -25,7 +25,7 @@ int numberOfBoomerangs(vector<vector<int>>& points) {
         unordered_map<int, int> record;
         for(int j = 0; j < points.size(); ++j){
             if(i != j){
-                ++record[dis(points[i], points[j])];
+                ++record[dis(points[i], points[j])];//如果超时，别调用函数，直接算平方和
             }
         }
         for(auto &i :record)
