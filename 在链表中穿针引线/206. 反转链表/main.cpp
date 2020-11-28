@@ -27,7 +27,7 @@ using namespace std;
      ListNode(int x) : val(x), next(NULL) {}
  };*/
 
-
+//µü´ú°æ
 ListNode* reverseList(ListNode* head) {
     ListNode *pre = NULL;
     ListNode *cur = head;
@@ -42,6 +42,19 @@ ListNode* reverseList(ListNode* head) {
     return pre;
 }
 
+//µİ¹é°æ
+ListNode* reverseList_1(ListNode* head) {
+    if( head == NULL || head->next == NULL)
+        return head;
+
+     ListNode* p = reverseList_1(head -> next);
+
+     head->next->next = head;
+     head->next = NULL;
+
+     return p;
+}
+
 int main()
 {
     int arr[] = {1,2,3,4,5};
@@ -50,7 +63,7 @@ int main()
     ListNode* head = creatLinkedList(arr, n);
     printLinkedList(head);
 
-    ListNode* head2 = reverseList(head);
+    ListNode* head2 = reverseList_1(head);
     printLinkedList(head2);
 
     return 0;
