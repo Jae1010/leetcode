@@ -66,7 +66,7 @@ public:
     }
 
     //无序创建哨兵节点，多个判断
-    ListNode* partition_2(ListNode* head, int x) {
+    ListNode* partition(ListNode* head, int x) {
 
         ListNode* nex = head;
         ListNode* before_head = NULL;
@@ -78,7 +78,7 @@ public:
             if(nex->val < x){
                 if(before_head == NULL){
                     before_head = nex;
-                    before = nex;
+                    before = before_head;
                 }
                 else{
                     before->next = nex;
@@ -88,7 +88,7 @@ public:
             else{
                 if(after_head == NULL){
                     after_head = nex;
-                    after = nex;
+                    after = after_head;
                 }
                 else{
                     after->next = nex;
@@ -98,12 +98,14 @@ public:
 
             nex = nex->next;
         }
-
-        after->next = NULL;
-
-        before->next = after_head;
-
-        return before_head;
+        if(after_head != NULL){
+            after->next = NULL;
+        }
+        if(before_head != NULL){
+            before->next = after_head;
+            return before_head;
+        }
+        return after_head;
 
     }
 };
